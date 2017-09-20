@@ -6,5 +6,3 @@ layout: default
 ---
 # Home
 Site content pending somewhat...
-
-[About](/about/)
