@@ -4,5 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: default
 ---
-# AkashV22 - There Were 21 Others Before Him Somehow...
+# Home
 Site content pending somewhat...
+
+[About](/about/)
