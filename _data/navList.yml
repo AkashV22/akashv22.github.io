@@ -1,0 +1,8 @@
+navs:
+  - name: Home
+    link: /
+    icon: home
+
+  - name: About
+    link: /about/
+    icon: info-circle
