@@ -13,12 +13,28 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        {% for item in include.navs %}
-          <li class="nav-item{% if item.link == page.url %} active{% endif %}">
-            <a class="nav-link" href="{{ item.link }}">
-                {% if item.icon %}<i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>{% endif %}
-                {{ item.name }}
-            </a>
+        {% for nav in include.navs %}
+          <li class="nav-item{% if nav.subNavs[0] %} dropdown{% endif %}{% if nav.link == page.url %} active{% endif %}">
+            {% if nav.subNavs[1] %}
+              {% capture dropdownId %}navbarDropdownMenuLink{{ forloop.index }}{% endcapture %}
+              <a class="nav-link dropdown-toggle" href="#" id="{{ dropdownId }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
+                  {{ nav.name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="{{ dropdownId }}">
+                {% for subNav in nav.subNavs %}
+                  <a class="dropdown-item{% if nav.link == page.url %} active{% endif %}" href="{{ subNav.link }}">
+                    {% if subNav.icon %}<i class="fa fa-{{ subNav.icon }}" aria-hidden="true"></i>{% endif %}
+                    {{ subNav.name }}
+                  </a>
+                {% endfor %}
+              </div>
+            {% else %}
+              <a class="nav-link" href="{{ nav.link }}">
+                  {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
+                  {{ nav.name }}
+              </a>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
