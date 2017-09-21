@@ -23,14 +23,15 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="{{ dropdownId }}">
                 {% for subNav in nav.subNavs %}
-                  <a class="dropdown-item{% if nav.link == page.url %} active{% endif %}" href="{{ subNav.link }}">
+                  <a class="dropdown-item{% if subNav.link == page.url %} active{% endif %}" href="{{ subNav.link }}"
+                     {% if subNav.newWindow %} target="_blank"{% endif %}>
                     {% if subNav.icon %}<i class="fa fa-{{ subNav.icon }}" aria-hidden="true"></i>{% endif %}
                     {{ subNav.name }}
                   </a>
                 {% endfor %}
               </div>
             {% else %}
-              <a class="nav-link" href="{{ nav.link }}">
+              <a class="nav-link" href="{{ nav.link }}"{% if nav.newWindow %} target="_blank"{% endif %}>
                   {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
                   {{ nav.name }}
               </a>
