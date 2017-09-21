@@ -20,7 +20,7 @@
           {% for item in site.data.navList.navs %}
             <li class="nav-item{% if item.link == page.url %} active{% endif %}">
               <a class="nav-link" href="{{ item.link }}">
-                <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+                {% if item.icon %}<i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>{% endif %}
                 {{ item.name }}
               </a>
             </li>
