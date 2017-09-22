@@ -1,1 +1,1 @@
-Creating a Procfile to deploy this to Heroku (so the develop branch can be shown off).
+web: jekyll serve --no-watch --port $PORT --host 0.0.0.0
