@@ -15,8 +15,8 @@
       <ul class="navbar-nav mr-auto">
         {% for nav in include.navs %}
           <li class="nav-item{% if nav.subNavs[0] %} dropdown{% endif %}{% if nav.link == page.url %} active{% endif %}">
-            {% if nav.subNavs[1] %}
-              {% capture dropdownId %}navbarDropdownMenuLink{{ forloop.index }}{% endcapture %}
+            {% if nav.subNavs[0] %}
+              {% capture dropdownId %}navbarDropdownMenuLink{{ forloop.index0 }}{% endcapture %}
               <a class="nav-link dropdown-toggle" href="#" id="{{ dropdownId }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
                   {{ nav.name }}
