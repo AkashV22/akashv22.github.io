@@ -5,3 +5,5 @@ lang: en-GB
 markdown: kramdown
 plugins:
   - jekyll-feed
+exclude:
+  - vendor
