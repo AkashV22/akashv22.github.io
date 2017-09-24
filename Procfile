@@ -1,1 +1,1 @@
-web: ./herokuBuildAndRun.sh $PORT
+web: bash ./herokuBuildAndRun.sh $PORT
