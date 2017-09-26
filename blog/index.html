@@ -22,7 +22,7 @@ title: Blog
         {% if page == paginator.page %}
           <li class="page-item active"><span class="page-link">{{ page }}<span class="sr-only">(current)</span></span></li>
         {% elsif page == 1 %}
-          <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path }}">{{ page }}</a></li>
+          <li class="page-item"><a class="page-link" href="{{ site.paginate_path | replace: 'page:num/', '' }}">{{ page }}</a></li>
         {% else %}
           <li class="page-item"><a class="page-link" href="{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a></li>
         {% endif %}
