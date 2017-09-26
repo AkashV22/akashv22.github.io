@@ -7,6 +7,10 @@ navs:
     link: /about/
     icon: info-circle
 
+  - name: Blog
+    link: /blog/
+    icon: list
+
   - name: External Links
     icon: external-link
     subNavs:
