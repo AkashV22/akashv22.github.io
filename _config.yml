@@ -3,7 +3,7 @@ description: A site in the making. Blogs and other stuff, but who knows what'll 
 repository: AkashV22/akashv22.github.io
 lang: en-GB
 markdown: kramdown
-permalink: /:year/:month/:day/:title.html
+permalink: /blog/:year/:month/:day/:title.html
 excerpt_separator: <!--more-->
 paginate: 5
 paginate_path: "/blog/page:num/"
