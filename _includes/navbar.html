@@ -9,35 +9,43 @@
   {% if include.brand %}<a class="navbar-brand" href="/">{{ include.brand }}</a>{% endif %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        {% for nav in include.navs %}
-          <li class="nav-item{% if nav.subNavs[0] %} dropdown{% endif %}{% if nav.link == page.url %} active{% endif %}">
-            {% if nav.subNavs[0] %}
-              {% capture dropdownId %}navbarDropdownMenuLink{{ forloop.index0 }}{% endcapture %}
-              <a class="nav-link dropdown-toggle" href="#" id="{{ dropdownId }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
-                  {{ nav.name }}
-              </a>
-              <div class="dropdown-menu" aria-labelledby="{{ dropdownId }}">
-                {% for subNav in nav.subNavs %}
-                  <a class="dropdown-item{% if subNav.link == page.url %} active{% endif %}" href="{{ subNav.link }}"
-                     {% if subNav.newWindow %} target="_blank"{% endif %}>
-                    {% if subNav.icon %}<i class="fa fa-{{ subNav.icon }}" aria-hidden="true"></i>{% endif %}
-                    {{ subNav.name }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% else %}
-              <a class="nav-link" href="{{ nav.link }}"{% if nav.newWindow %} target="_blank"{% endif %}>
-                  {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
-                  {{ nav.name }}
-              </a>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
+    <ul class="navbar-nav mr-auto">
+      {% for nav in include.navs %}
+        <li class="nav-item{% if nav.subNavs[0] %} dropdown{% endif %}{% if nav.link == page.url %} active{% endif %}">
+          {% if nav.subNavs[0] %}
+            {% capture dropdownId %}navbarDropdownMenuLink{{ forloop.index0 }}{% endcapture %}
+            <a class="nav-link dropdown-toggle" href="#" id="{{ dropdownId }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
+              {{ nav.name }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="{{ dropdownId }}">
+              {% for subNav in nav.subNavs %}
+                <a class="dropdown-item{% if subNav.link == page.url %} active{% endif %}" href="{{ subNav.link }}"
+                   {% if subNav.newWindow %}target="_blank"{% endif %}>
+                  {% if subNav.icon %}<i class="fa fa-{{ subNav.icon }}" aria-hidden="true"></i>{% endif %}
+                  {{ subNav.name }}
+                </a>
+              {% endfor %}
+            </div>
+          {% else %}
+            <a class="nav-link" href="{{ nav.link }}"{% if nav.newWindow %} target="_blank"{% endif %}>
+              {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
+              {{ nav.name }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0"
+          action="{% if page.tipue_search_active or layout.tipue_search_active %}{{ page.url | relative_url }}{% else %}{{ site.default_search_page | relative_url }}{% endif %}">
+      <input class="form-control mr-sm-2" type="text" name="q" {% if page.tipue_search_active or layout.tipue_search_active %}id="tipue_search_input"{% endif %} placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        Search
+      </button>
+    </form>
   </div>
 </nav>
