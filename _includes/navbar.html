@@ -41,10 +41,9 @@
     </ul>
     <form class="form-inline my-2 my-lg-0"
           action="{% if page.tipue_search_active or layout.tipue_search_active %}{{ page.url | relative_url }}{% else %}{{ site.default_search_page | relative_url }}{% endif %}">
-      <input class="form-control mr-sm-2" type="text" name="q" {% if page.tipue_search_active or layout.tipue_search_active %}id="tipue_search_input"{% endif %} placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">
+      <input class="form-control mr-sm-2" type="text" name="q" id="tipue_search_input" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit" aria-label="Search">
         <i class="fa fa-search" aria-hidden="true"></i>
-        Search
       </button>
     </form>
   </div>
