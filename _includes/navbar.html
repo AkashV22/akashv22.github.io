@@ -6,7 +6,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-{{ include.navbarColour | default: "light" }} bg-{{ resolvedBgColour | default: "light" }}">
-  {% if include.brand %}<a class="navbar-brand" href="/">{{ include.brand }}</a>{% endif %}
+  {% if include.brand %}<a class="navbar-brand" href="{{ "/" | relative_url }}">{{ include.brand }}</a>{% endif %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,15 +23,27 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="{{ dropdownId }}">
               {% for subNav in nav.subNavs %}
-                <a class="dropdown-item{% if subNav.link == page.url %} active{% endif %}" href="{{ subNav.link }}"
-                   {% if subNav.newWindow %}target="_blank"{% endif %}>
+                {% capture subNavLinkPrefix%}{{subNav.link | slice: 0 }}{% endcapture %}
+                {% if subNavLinkPrefix == "/" %}
+                  {% capture subNavLink %}{{subNav.link | relative_url}}{% endcapture %}
+                {% else %}
+                  {% assign subNavLink = subNav.link %}
+                {% endif %}
+                <a class="dropdown-item{% if subNavLink == page.url %} active{% endif %}" href="{{ subNavLink }}"
+                  {% if subNav.newWindow %}target="_blank"{% endif %}>
                   {% if subNav.icon %}<i class="fa fa-{{ subNav.icon }}" aria-hidden="true"></i>{% endif %}
                   {{ subNav.name }}
                 </a>
               {% endfor %}
             </div>
           {% else %}
-            <a class="nav-link" href="{{ nav.link }}"{% if nav.newWindow %} target="_blank"{% endif %}>
+            {% capture navLinkPrefix%}{{nav.link | slice: 0 }}{% endcapture %}
+            {% if navLinkPrefix == "/" %}
+              {% capture navLink %}{{nav.link | relative_url}}{% endcapture %}
+            {% else %}
+              {% assign navLink = nav.link %}
+            {% endif %}
+            <a class="nav-link" href="{{ navLink }}"{% if nav.newWindow %} target="_blank"{% endif %}>
               {% if nav.icon %}<i class="fa fa-{{ nav.icon }}" aria-hidden="true"></i>{% endif %}
               {{ nav.name }}
             </a>
