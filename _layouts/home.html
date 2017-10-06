@@ -11,7 +11,7 @@ layout: default
     <div class="col-xl-6">
       <div class="card post-card">
         <div class="card-header">
-          <a href="{{ post.url | relative_url }}"><h3 class="card-title">{{ post.title }}</h3></a>
+          <a href="{{ post.url | absolute_url }}"><h3 class="card-title">{{ post.title }}</h3></a>
           {{ post.date }}
         </div>
         <div class="card-body">

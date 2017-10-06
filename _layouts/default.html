@@ -10,11 +10,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     {% if page.tipue_search_active or layout.tipue_search_active %}
-      <script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | relative_url }}"></script>
-      <script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | relative_url }}"></script>
-      <script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | relative_url }}"></script>
+      <script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | absolute_url }}"></script>
+      <script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | absolute_url }}"></script>
+      <script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | absolute_url }}"></script>
     {% endif %}
-    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | absolute_url }}">
   </head>
   <body>
     {% include navbar.html brand="AkashV22" navs=site.data.navList.navs navbarColour="dark" %}

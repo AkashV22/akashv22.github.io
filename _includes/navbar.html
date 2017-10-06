@@ -6,7 +6,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-{{ include.navbarColour | default: "light" }} bg-{{ resolvedBgColour | default: "light" }}">
-  {% if include.brand %}<a class="navbar-brand" href="{{ "/" | relative_url }}">{{ include.brand }}</a>{% endif %}
+  {% if include.brand %}<a class="navbar-brand" href="{{ "/" | absolute_url }}">{{ include.brand }}</a>{% endif %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
               {% for subNav in nav.subNavs %}
                 {% capture subNavLinkPrefix%}{{subNav.link | slice: 0 }}{% endcapture %}
                 {% if subNavLinkPrefix == "/" %}
-                  {% capture subNavLink %}{{subNav.link | relative_url}}{% endcapture %}
+                  {% capture subNavLink %}{{subNav.link | absolute_url}}{% endcapture %}
                 {% else %}
                   {% assign subNavLink = subNav.link %}
                 {% endif %}
@@ -39,7 +39,7 @@
           {% else %}
             {% capture navLinkPrefix%}{{nav.link | slice: 0 }}{% endcapture %}
             {% if navLinkPrefix == "/" %}
-              {% capture navLink %}{{nav.link | relative_url}}{% endcapture %}
+              {% capture navLink %}{{nav.link | absolute_url}}{% endcapture %}
             {% else %}
               {% assign navLink = nav.link %}
             {% endif %}
@@ -52,7 +52,7 @@
       {% endfor %}
     </ul>
     <form class="form-inline my-2 my-lg-0"
-          action="{% if page.tipue_search_active or layout.tipue_search_active %}{{ page.url | relative_url }}{% else %}{{ site.default_search_page | relative_url }}{% endif %}">
+          action="{% if page.tipue_search_active or layout.tipue_search_active %}{{ page.url | absolute_url }}{% else %}{{ site.default_search_page | absolute_url }}{% endif %}">
       <input class="form-control mr-sm-2" type="text" name="q" id="tipue_search_input" placeholder="Search" aria-label="Search">
       <button class="btn btn-primary my-2 my-sm-0" type="submit" aria-label="Search">
         <i class="fa fa-search" aria-hidden="true"></i>

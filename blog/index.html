@@ -4,7 +4,7 @@ title: Blog
 exclude_from_search: true
 ---
 {% for post in paginator.posts %}
-<h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+<h1><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h1>
 <p>{{ post.date }}</p>
 <div>
   {{ post.excerpt }}
@@ -14,7 +14,7 @@ exclude_from_search: true
 <nav aria-label="Blog page navigation">
   <ul class="pagination">
     {% if paginator.previous_page %}
-      <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | absolute_url }}">Previous</a></li>
     {% else %}
       <li class="page-item disabled"><span class="page-link">Previous</span></li>
     {% endif %}
@@ -23,9 +23,9 @@ exclude_from_search: true
       {% if page == paginator.page %}
         <li class="page-item active"><span class="page-link">{{ page }}<span class="sr-only">(current)</span></span></li>
       {% elsif page == 1 %}
-        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: 'page:num/', '' }}">{{ page }}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | absolute_url | replace: 'page:num/', '' }}">{{ page }}</a></li>
       {% else %}
-        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ site.paginate_path | absolute_url | replace: ':num', page }}">{{ page }}</a></li>
       {% endif %}
     {% endfor %}
 
