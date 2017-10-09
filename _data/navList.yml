@@ -1,40 +1,39 @@
-navs:
-  - name: Home
-    link: /
-    icon: home
+- name: Home
+  link: /
+  icon: home
 
-  - name: About
-    link: /about/
-    icon: info-circle
+- name: About
+  link: /about/
+  icon: info-circle
 
-  - name: Blog
-    link: /blog/
-    icon: list
+- name: Blog
+  link: /blog/
+  icon: list
 
-  - name: External Links
-    icon: external-link
-    subNavs:
-      - name: Github
-        link: https://github.com/AkashV22/
-        icon: github
-        newWindow: true
+- name: External Links
+  icon: external-link
+  subNavs:
+    - name: Github
+      link: https://github.com/AkashV22/
+      icon: github
+      newWindow: true
 
-      - name: Twitter
-        link: https://twitter.com/AkashV22
-        icon: twitter
-        newWindow: true
+    - name: Twitter
+      link: https://twitter.com/AkashV22
+      icon: twitter
+      newWindow: true
 
-      - name: YouTube
-        link: https://www.youtube.com/user/AkashV22
-        icon: youtube-play
-        newWindow: true
+    - name: YouTube
+      link: https://www.youtube.com/user/AkashV22
+      icon: youtube-play
+      newWindow: true
 
-      - name: Twitch
-        link: https://www.twitch.tv/akashv22
-        icon: twitch
-        newWindow: true
+    - name: Twitch
+      link: https://www.twitch.tv/akashv22
+      icon: twitch
+      newWindow: true
 
-      - name: Steam
-        link: http://steamcommunity.com/id/AkashV22
-        icon: steam-square
-        newWindow: true
+    - name: Steam
+      link: http://steamcommunity.com/id/AkashV22
+      icon: steam-square
+      newWindow: true
